@@ -1,11 +1,10 @@
 import streamlit as st
 import requests
-import json
 
 # Define constants
 API_KEY = "b3c62ae7f7ad5fc3cb0a7b56cb7cbda6"
 API_URL = f"https://api.openweathermap.org/data/2.5/weather?appid={API_KEY}&units=metric"
-ICONS_PATH = "images/"
+ICON_URL = "http://openweathermap.org/img/wn/"
 
 # Function to fetch weather data
 def get_weather(city):
@@ -16,27 +15,17 @@ def get_weather(city):
 
 # Function to display weather information
 def display_weather(data):
-    weather_description = data['weather'][0]['main']
+    weather_description = data['weather'][0]['description'].capitalize()
+    icon_code = data['weather'][0]['icon']
     temperature = data['main']['temp']
     humidity = data['main']['humidity']
     wind_speed = data['wind']['speed']
-
-    st.write(f"Weather: {weather_description}")
-    st.write(f"Temperature: {temperature} °C")
-    st.write(f"Humidity: {humidity} %")
-    st.write(f"Wind Speed: {wind_speed} km/hr")
-
-    # Display weather icon based on weather description
-    if weather_description == 'Clear':
-        st.image(ICONS_PATH + 'clear.png', width=100)
-    elif weather_description == 'Clouds':
-        st.image(ICONS_PATH + 'clouds.png', width=100)
-    elif weather_description == 'Drizzle':
-        st.image(ICONS_PATH + 'drizzle.png', width=100)
-    elif weather_description == 'Rain':
-        st.image(ICONS_PATH + 'rain.png', width=100)
-    elif weather_description == 'Mist':
-        st.image(ICONS_PATH + 'mist.png', width=100)
+    
+    st.write(f"**Weather:** {weather_description}")
+    st.image(f"{ICON_URL}{icon_code}@2x.png", width=100)
+    st.write(f"**Temperature:** {temperature} °C")
+    st.write(f"**Humidity:** {humidity} %")
+    st.write(f"**Wind Speed:** {wind_speed} km/hr")
 
 # Streamlit app layout
 def main():
