@@ -10,12 +10,12 @@ WeatherNow fetches live weather data using the OpenWeatherMap API and displays i
 
 ## Demonstration
 
-![WeatherNow Demo](https://github.com/atandritC/Demo-GIFs-Pictures/blob/main/WeatherNow.gif)
+![WeatherNow Demo](https://github.com/atandritC/Project-Demos/blob/main/WeatherNow.gif)
 
 ## Installation and Usage Instructions (For End-Users)
 
 To use WeatherNow, visit the following Streamlit site where it is hosted:
-[WeatherNow on Streamlit](https://weathernow-app.streamlit.io/)
+[WeatherNow on Streamlit](https://weathernow-info.streamlit.app/)
 
 ## Installation and Usage Instructions (For Developers)
 
